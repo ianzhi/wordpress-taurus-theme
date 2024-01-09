@@ -66,3 +66,9 @@ figure {
     display: block;
     width: 100%;
 }
+
+/* code block */
+.wp-block-code {
+    border: 0;
+    padding: 0;
+}

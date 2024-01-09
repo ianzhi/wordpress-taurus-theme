@@ -58,17 +58,25 @@ update_post_meta( get_the_ID(), 'views', $views + 1 );
     </main>
 
     <?php get_footer(); ?>
-    <?php
-        if (strpos(get_the_content(), 'wp-block-code') !== false) {
-            $uri = get_template_directory_uri();
-    ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/highlight/styles/vs2015.min.css">
-        <script src="<?php echo $uri; ?>/assets/highlight/highlight.min.js"></script>
-        <script>
-            document
-                .querySelectorAll('.wp-block-code')
-                .forEach(item => hljs.highlightBlock(item))
-        </script>
-    <?php } ?>
+    <?php $uri = get_template_directory_uri(); ?>
+    <script>
+        const codeBlocks = document.querySelectorAll('pre.wp-block-code code')
+        if (codeBlocks.length > 0) {
+            const link = document.createElement('link')
+            link.id = 'highlightcss'
+            link.rel = 'stylesheet'
+            link.href = '<?php echo $uri; ?>/assets/highlight/styles/vs2015.min.css'
+            document.head.appendChild(link)
+
+            const script = document.createElement('script')
+            script.id = 'highlightjs'
+            script.src = '<?php echo $uri; ?>/assets/highlight/highlight.min.js'
+            document.body.appendChild(script)
+
+            script.onload = function () {
+                codeBlocks.forEach((el) => hljs.highlightElement(el) )
+            }
+        }
+    </script>
 </body>
 </html>

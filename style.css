@@ -61,3 +61,8 @@ a:hover {
 .card-img-overlay p a:hover {
     text-decoration: underline;
 }
+
+figure {
+    display: block;
+    width: 100%;
+}

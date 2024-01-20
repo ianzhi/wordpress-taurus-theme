@@ -35,10 +35,13 @@
                 <h1 class="card-title"><?php single_cat_title() ?></h1>
                 <p class="card-text mt-1"><?php echo category_description() ?></p>
             <?php } else if (is_search()) { ?>
-                <h1 class="card-title">搜索词：<?php the_search_query() ?></h1>
+                <h1 class="card-title">搜索词：<?php the_search_query(); ?></h1>
             <?php } else { ?>
-                <h1 class="card-title"><?php the_title() ?></h1>
-                <p class="card-text mt-1"><?php echo the_tags() ?></p>
+                <h1 class="card-title"><?php the_title(); ?></h1>
+                <p class="card-text mt-1">
+					<?php the_time( get_option( 'date_format' ) ); ?>
+					<?php the_tags(); ?>
+				</p>
             <?php } ?>
         </div>
     </div>

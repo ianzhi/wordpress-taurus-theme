@@ -20,12 +20,12 @@
 <body <?php body_class(); ?>>
     <?php get_header(); ?>
 
-    <main class="container">
+    <main class="container mt-3">
         <div class="row m-0 p-0">
-            <div class="px-0 <?php if (is_registered_sidebar('home')) { ?>col-12 col-md-9<?php } else { ?>col-12<?php } ?>">
+            <div class="px-0 col-12 <?php if (is_active_sidebar('home')) { ?> col-md-9<?php } ?>">
                 <?php if ( have_posts() ) : ?>
                     <?php while ( have_posts() ) : the_post(); ?>
-                        <div class="card mt-3 border-0 bg-light">
+                        <div class="card border-0 bg-light">
                             <div class="row p-3 align-items-start">
                                 <div class="col-12 col-md-4 col-lg-3">
                                     <a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
@@ -68,7 +68,7 @@
             </div>
 
             <!-- sidebar -->
-            <?php if ( is_registered_sidebar('home') ) { ?>
+            <?php if ( is_active_sidebar('home') ) { ?>
                 <div class="col-12 col-md-3 mt-3">
                     <?php dynamic_sidebar('home');  ?>
                 </div>

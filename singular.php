@@ -43,9 +43,18 @@ update_post_meta( get_the_ID(), 'views', $views + 1 );
 
     <main class="container mt-3">
         <div class="row m-0 p-0">
-            <div class="bg-light rounded p-3 px-md-5 <?php if (is_active_sidebar('post')) { ?>col-12 col-md-9<?php } ?>">
-                <h2 class="d-block d-md-none"><?php the_title(); ?></h2>
-                <div class="mt-3 lh-base blog-content"><?php the_content(); ?></div>
+            <div<?php if (is_active_sidebar('post')) { ?> class="col-12 col-md-9"<?php } ?>>
+                <div class="bg-light rounded p-3 px-md-5">
+                    <h2 class="d-block d-md-none"><?php the_title(); ?></h2>
+                    <div class="mt-3 lh-base blog-content"><?php the_content(); ?></div>
+                </div>
+
+                <?php
+                    // If comments are open or we have at least one comment, load up the comment template.
+                    if ( comments_open() || get_comments_number() ) {
+                        comments_template();
+                    }
+                ?>
             </div>
 
             <!-- sidebar -->

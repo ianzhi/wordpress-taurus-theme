@@ -1,7 +1,7 @@
 === Taurus Blog ===
-Contributors: ianzhi
+Contributors: Ian Zhi
 Requires at least: 6.3
-Tested up to: 6.3
+Tested up to: 6.4.2
 Requires PHP: 7.0
 Stable tag: 1.0.0
 License: GPLv2 or later
@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-A lightweight and minimalist blog theme based on Boostrap 5.
+一个轻量、极简的博客主题
 
 == Changelog ==
 
